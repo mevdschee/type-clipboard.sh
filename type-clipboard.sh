@@ -48,7 +48,7 @@ elif [[ "$1" == "install" ]]; then
         echo "Error: Failed to install script." >&2
         exit 1
     fi
-    echo "Installed to $target_file"
+    echo "Script installed to $target_file"
     # Install desktop entry
     cat > "$desktop_file" <<EOF
 [Desktop Entry]
@@ -81,6 +81,7 @@ elif [[ "$1" == "remove" ]]; then
         echo "Error: Failed to remove script." >&2
         exit 1
     fi
+    echo "Removed script $target_file"
     # Remove desktop entry
     rm "$desktop_file"
     if [[ $? -ne 0 ]]; then
