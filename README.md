@@ -16,9 +16,14 @@ If the clipboard contains multiple lines, you can edit the text before typing us
 When you run the script for the first time, it will check for these dependencies and suggest how to install them if they are missing.
 
 Install dependencies on:
+
 - **Debian/Ubuntu:** `sudo apt install xdotool xclip yad`
 - **Fedora:** `sudo dnf install xdotool xclip yad`
 - **Arch/Manjaro:** `sudo pacman -Syu xdotool xclip yad`
+- **openSUSE:** `sudo zypper install xdotool xclip yad`
+- **CentOS/RHEL:** `sudo yum install xdotool xclip yad` 
+
+**Note:** CentOS/RHEL requires EPEL repository: `sudo yum install epel-release`
 
 ## Usage
 
