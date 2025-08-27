@@ -35,9 +35,12 @@ bash type-clipboard.sh [install|remove|-h|--help]
 - `remove`        - Remove the script and shortcut (requires root privileges)
 - `-h`, `--help`  - Show help message
 
-The install path of the script is `/usr/local/bin/type-clipboard` and the install path of the shortcut is `/usr/share/applications/type-clipboard.desktop`. 
-
 **Note:** You may need to prepend `sudo` to the script to execute it with root privileges.
+
+Installation paths:
+
+- Script: `/usr/local/bin/type-clipboard` 
+- Shortcut: `/usr/share/applications/type-clipboard.desktop`. 
 
 After installing the shortcut, the application should be easy to add to your menu or panel. The shortcut database is updated automatically and the application will appear as "type-clipboard".
 
