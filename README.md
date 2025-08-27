@@ -28,16 +28,16 @@ Install dependencies on:
 ## Usage
 
 ```
-bash type-clipboard.sh [install-binary|remove-binary|install-shortcut|remove-shortcut|-h]
+bash type-clipboard.sh [install-executable|remove-executable|install-shortcut|remove-shortcut|-h]
 ```
 
-- `install-binary`    Install this script to `/usr/local/bin/type-clipboard`
-- `remove-binary`     Remove script from `/usr/local/bin/type-clipboard`
-- `install-shortcut`  Install shortcut to `/usr/share/applications`
-- `remove-shortcut`   Remove shortcut to `/usr/share/applications`
-- `-h`, `--help`      Show help message
+- `install-executable` - Install this script to `/usr/local/bin/type-clipboard`
+- `remove-executable`  - Remove script from `/usr/local/bin/type-clipboard`
+- `install-shortcut`   - Install shortcut to `/usr/share/applications`
+- `remove-shortcut`    - Remove shortcut to `/usr/share/applications`
+- `-h`, `--help`       - Show help message
 
-**Note:** Installing or removing the binary or the shortcut requires superuser privileges (e.g. `sudo`).
+**Note:** Installing or removing the executable or the shortcut requires superuser privileges (you may need to use `sudo`).
 
 After installing the shortcut, the application should be easy to add to your menu or panel. The shortcut database is updated automatically and the application will appear as "type-clipboard".
 
