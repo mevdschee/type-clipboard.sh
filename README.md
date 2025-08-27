@@ -1,6 +1,8 @@
 # type-clipboard.sh
 
-Type the contents of the clipboard into a selected window (Linux X11 only, Wayland not supported).
+Linux bash script that types the contents of the clipboard into a selected window.
+
+This is particularly useful when clipboard sharing is not available (e.g. in a VNC console).
 
 The script will prompt you to select a window before it types the clipboard contents into it.
 
