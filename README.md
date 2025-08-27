@@ -37,7 +37,7 @@ bash type-clipboard.sh [install-binary|remove-binary|install-shortcut|remove-sho
 - `remove-shortcut`   Remove shortcut to `/usr/share/applications`
 - `-h`, `--help`      Show help message
 
-**Note:** Installing or removing the binary or the shortcut requires superuser privileges (use `sudo`).
+**Note:** Installing or removing the binary or the shortcut requires superuser privileges (e.g. `sudo`).
 
 After installing the shortcut, the application should be easy to add to your menu or panel. The shortcut database is updated automatically and the application will appear as "type-clipboard".
 
