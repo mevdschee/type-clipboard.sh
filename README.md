@@ -11,14 +11,14 @@ If the clipboard contains multiple lines, you can edit the text before typing us
 - X11 session (not Wayland)
 - `xdotool` (for window selection and typing)
 - `xclip` (for clipboard access)
-- `zenity` (for multiline editing/confirmation)
+- `yad` (for multiline editing/confirmation)
 
 When you run the script for the first time, it will check for these dependencies and suggest how to install them if they are missing.
 
 Install dependencies on:
-- **Debian/Ubuntu:** `sudo apt install xdotool xclip zenity`
-- **Fedora:** `sudo dnf install xdotool xclip zenity`
-- **Arch/Manjaro:** `sudo pacman -Syu xdotool xclip zenity`
+- **Debian/Ubuntu:** `sudo apt install xdotool xclip yad`
+- **Fedora:** `sudo dnf install xdotool xclip yad`
+- **Arch/Manjaro:** `sudo pacman -Syu xdotool xclip yad`
 
 ## Usage
 

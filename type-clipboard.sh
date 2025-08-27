@@ -82,7 +82,7 @@ fi
 
 # Check for required commands
 missing=()
-for cmd in xclip zenity xdotool; do
+for cmd in xclip yad xdotool; do
     if ! command -v "$cmd" >/dev/null 2>&1; then
         missing+=("$cmd")
     fi
@@ -155,17 +155,15 @@ fi
 sentinel="__END_OF_CLIPBOARD__"
 text=$(xclip -selection clipboard -o; printf "$sentinel")
 text="${text%$sentinel}"
-# Check for multiline and allow editing using zenity
+# Check for multiline and allow editing using yad
 if [[ "$text" == *$'\n'* ]]; then
-    text=$(zenity --text-info --editable --width=600 --height=400 --title="Edit clipboard text before typing" --filename=<(echo -n "$text"))
+    text=$(yad --text-info --editable --width=600 --height=400 --title="Edit clipboard text before typing" --filename=<(echo -n "$text"))
     if [[ $? -ne 0 ]]; then
         echo "Error: Text editing cancelled."
         exit 1
     fi
     # Replace newlines with carriage returns for xdotool
-    echo "[$text]"
     text=$(echo -n "$text" | tr '\n' '\r')
-    echo "[$text]"    
 fi
 
 
