@@ -23,7 +23,7 @@ Install dependencies on:
 ## Usage
 
 ```
-bash type-clipboard.sh [install-binary|remove-binary|install-shortcut|remove-shortcut|-h|--help]
+bash type-clipboard.sh [install-binary|remove-binary|install-shortcut|remove-shortcut|-h]
 ```
 
 - `install-binary`    Install this script to `/usr/local/bin/type-clipboard` (requires superuser privileges)
