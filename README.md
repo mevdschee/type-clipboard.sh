@@ -1,6 +1,6 @@
 # type-clipboard.sh
 
-Type the contents of the clipboard into a selected window (X11 only, Wayland not supported).
+Type the contents of the clipboard into a selected window (Linux X11 only, Wayland not supported).
 
 The script will prompt you to select a window before it types the clipboard contents into it.
 
