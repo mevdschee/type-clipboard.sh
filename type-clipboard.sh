@@ -168,5 +168,9 @@ if [[ $? -ne 0 ]]; then
     echo "Error: Failed to focus window." >&2
     exit 1
 fi
-# Type the text
-echo -n "$text" | xdotool type --clearmodifiers --delay 25 --window $win --file -
+
+# Use xdotool to type if text is non-empty
+if [[ -n "$text" ]]; then
+    echo "type[$text]"
+    echo -n "$text" | xdotool type --clearmodifiers --delay 25 --window $win --file -
+fi
