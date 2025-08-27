@@ -22,10 +22,10 @@ if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     cat <<EOF
 Usage: $(basename "$0") [install-script|remove-script|install-shortcut|remove-shortcut|-h|--help]
 
-install-script    Install this script to $target_dir
-remove-script     Remove script from $target_dir
-install-shortcut  Install shortcut to $desktop_dir
-remove-shortcut   Remove shortcut from $desktop_dir
+install-script    Install this script to $target_dir (requires superuser privileges)
+remove-script     Remove script from $target_dir (requires superuser privileges)
+install-shortcut  Install shortcut to $desktop_dir (requires superuser privileges)
+remove-shortcut   Remove shortcut from $desktop_dir (requires superuser privileges)
 -h, --help        Show this help message
 
 If no argument is given, the script will type clipboard contents into a selected window (X11 only).
