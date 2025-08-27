@@ -28,7 +28,7 @@ Install dependencies on:
 ## Usage
 
 ```
-bash type-clipboard.sh [install|remove|-h|--help]
+[sudo] bash type-clipboard.sh [install|remove|-h|--help]
 ```
 
 - `install`       - Install the script and shortcut (requires root privileges)
