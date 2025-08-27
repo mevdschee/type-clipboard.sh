@@ -31,13 +31,13 @@ Install dependencies on:
 bash type-clipboard.sh [install-script|remove-script|install-shortcut|remove-shortcut|-h]
 ```
 
-- `install-script`    - Install this script to `/usr/local/bin/type-clipboard`
-- `remove-script`     - Remove script from `/usr/local/bin/type-clipboard`
-- `install-shortcut`  - Install shortcut to `/usr/share/applications`
-- `remove-shortcut`   - Remove shortcut to `/usr/share/applications`
+- `install-script`    - Install this script to `/usr/local/bin/type-clipboard` (requires superuser privileges)
+- `remove-script`     - Remove script from `/usr/local/bin/type-clipboard` (requires superuser privileges)
+- `install-shortcut`  - Install shortcut to `/usr/share/applications` (requires superuser privileges)
+- `remove-shortcut`   - Remove shortcut to `/usr/share/applications` (requires superuser privileges)
 - `-h`, `--help`      - Show help message
 
-**Note:** Installing or removing the script or the shortcut requires superuser privileges (you may need to use `sudo`).
+**Note:** You may need to prepend `sudo` to the script to execute it with superuser privileges.
 
 After installing the shortcut, the application should be easy to add to your menu or panel. The shortcut database is updated automatically and the application will appear as "type-clipboard".
 
