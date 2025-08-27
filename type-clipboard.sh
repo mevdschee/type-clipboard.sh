@@ -20,36 +20,36 @@ desktop_file="$desktop_dir/type-clipboard.desktop"
 
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     cat <<EOF
-Usage: $(basename "$0") [install-script|remove-script|install-shortcut|remove-shortcut|-h|--help]
+Usage: $(basename "$0") [install|remove|-h|--help]
 
-install-script    Install this script to $target_dir (requires superuser privileges)
-remove-script     Remove script from $target_dir (requires superuser privileges)
-install-shortcut  Install shortcut to $desktop_dir (requires superuser privileges)
-remove-shortcut   Remove shortcut from $desktop_dir (requires superuser privileges)
--h, --help        Show this help message
+install     Install this script and create a shortcut
+remove      Remove the script and its shortcut
+-h, --help  Show this help message
 
-If no argument is given, the script will type clipboard contents into a selected window (X11 only).
+script: $target_file
+shortcut: $desktop_file
+
+If no argument is given, the script will:
+- allow selecting a window using the left mouse button
+- allow editing or cancelling (multiline content only)
+- type the clipboard contents into the selected window
+
 EOF
     exit 0
-elif [[ "$1" == "install-script" ]]; then
-    if cp -- "$0" "$target_file" && chmod +x "$target_file"; then
-        echo "Installed to $target_file"
-        exit 0
+elif [[ "$1" == "install" ]]; then
+    # Check for root privileges
+    if [ "$EUID" -ne 0 ]; then
+        echo "Error: Must be run as root (e.g. using sudo)." >&2
+        exit 1
     fi
-    if [ -z "$SUDO_USER" ]; then
-        echo "Hint: Try running with sudo." >&2
+    # Install script
+    cp -- "$0" "$target_file" && chmod +x "$target_file"
+    if [[ $? -ne 0 ]]; then
+        echo "Error: Failed to install script." >&2
+        exit 1
     fi
-    exit 1
-elif [[ "$1" == "remove-script" ]]; then
-    if rm "$target_file"; then
-        echo "Removed $target_file"
-        exit 0
-    fi
-    if [ -z "$SUDO_USER" ]; then
-        echo "Hint: Try running with sudo." >&2
-    fi
-    exit 1
-elif [[ "$1" == "install-shortcut" ]]; then
+    echo "Installed to $target_file"
+    # Install desktop entry
     cat > "$desktop_file" <<EOF
 [Desktop Entry]
 Version=1.0
@@ -62,25 +62,34 @@ Path=
 Terminal=false
 StartupNotify=false
 EOF
-    if [[ $? -eq 0 ]]; then
-        update-desktop-database "$desktop_dir" >/dev/null 2>&1
-        echo "Shortcut installed to $desktop_file"
-        exit 0
+    if [[ $? -ne 0 ]]; then
+        echo "Error: Failed to install shortcut." >&2
+        exit 1
     fi
-    if [ -z "$SUDO_USER" ]; then
-        echo "Hint: Try running with sudo." >&2
+    update-desktop-database "$desktop_dir" >/dev/null 2>&1
+    echo "Shortcut installed to $desktop_file"
+    exit 0
+elif [[ "$1" == "remove" ]]; then
+    # Check for root privileges
+    if [ "$EUID" -ne 0 ]; then
+        echo "Error: Must be run as root (e.g. using sudo)." >&2
+        exit 1
     fi
-    exit 1
-elif [[ "$1" == "remove-shortcut" ]]; then
-    if rm "$desktop_file"; then
-        update-desktop-database "$desktop_dir" >/dev/null 2>&1
-        echo "Removed shortcut $desktop_file"
-        exit 0
+    # Remove script
+    rm "$target_file"
+    if [[ $? -ne 0 ]]; then
+        echo "Error: Failed to remove script." >&2
+        exit 1
     fi
-    if [ -z "$SUDO_USER" ]; then
-        echo "Hint: Try running with sudo." >&2
+    # Remove desktop entry
+    rm "$desktop_file"
+    if [[ $? -ne 0 ]]; then
+        echo "Error: Failed to remove shortcut." >&2
+        exit 1
     fi
-    exit 1
+    update-desktop-database "$desktop_dir" >/dev/null 2>&1
+    echo "Removed shortcut $desktop_file"
+    exit 0
 fi
 
 # Check for required commands
