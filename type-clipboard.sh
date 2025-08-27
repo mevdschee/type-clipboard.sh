@@ -140,17 +140,13 @@ if [ -z "$DISPLAY" ]; then
     exit 1
 fi
 
-# Select window and type using xdotool
+# Select window using xdotool
 win=$(xdotool selectwindow 2>/dev/null)
 if [[ $? -ne 0 || -z "$win" ]]; then
     echo "Error: Failed to select window."
     exit 1
 fi
-xdotool windowfocus --sync $win
-if [[ $? -ne 0 ]]; then
-    echo "Error: Failed to focus window."
-    exit 1
-fi
+
 # Use sentinel to avoid stripping whitespace
 sentinel="__END_OF_CLIPBOARD__"
 text=$(xclip -selection clipboard -o; printf "$sentinel")
@@ -166,6 +162,11 @@ if [[ "$text" == *$'\n'* ]]; then
     text=$(echo -n "$text" | tr '\n' '\r')
 fi
 
-
+# Focus window using xdotool
+xdotool windowfocus --sync $win
+if [[ $? -ne 0 ]]; then
+    echo "Error: Failed to focus window."
+    exit 1
+fi
 # Type the text
 echo -n "$text" | xdotool type --clearmodifiers --delay 25 --window $win --file -
