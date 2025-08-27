@@ -16,6 +16,9 @@ fi
 target_dir="/usr/local/bin"
 target_file="$target_dir/type-clipboard"
 desktop_dir="$HOME/.local/share/applications"
+if [[ "$desktop_dir" == "/root/.local/share/applications" ]]; then
+    desktop_dir="/usr/share/applications"
+fi
 desktop_file="$desktop_dir/type-clipboard.desktop"
 
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
