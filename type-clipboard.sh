@@ -15,10 +15,7 @@ fi
 # Parse first argument for help/install/remove actions
 target_dir="/usr/local/bin"
 target_file="$target_dir/type-clipboard"
-desktop_dir="$HOME/.local/share/applications"
-if [[ "$desktop_dir" == "/root/.local/share/applications" ]]; then
-    desktop_dir="/usr/share/applications"
-fi
+desktop_dir="/usr/share/applications"
 desktop_file="$desktop_dir/type-clipboard.desktop"
 
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
@@ -70,12 +67,18 @@ EOF
         echo "Shortcut installed to $desktop_file"
         exit 0
     fi
+    if [ -z "$SUDO_USER" ]; then
+        echo "Hint: Try running with sudo." >&2
+    fi
     exit 1
 elif [[ "$1" == "remove-shortcut" ]]; then
     if rm "$desktop_file"; then
         update-desktop-database "$desktop_dir" >/dev/null 2>&1
         echo "Removed shortcut $desktop_file"
         exit 0
+    fi
+    if [ -z "$SUDO_USER" ]; then
+        echo "Hint: Try running with sudo." >&2
     fi
     exit 1
 fi
