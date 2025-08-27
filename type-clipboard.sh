@@ -20,18 +20,18 @@ desktop_file="$desktop_dir/type-clipboard.desktop"
 
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     cat <<EOF
-Usage: $(basename "$0") [install-executable|remove-executable|install-shortcut|remove-shortcut|-h|--help]
+Usage: $(basename "$0") [install-script|remove-script|install-shortcut|remove-shortcut|-h|--help]
 
-install-executable  Install this script to $target_dir
-remove-executable   Remove script from $target_dir
-install-shortcut    Install shortcut to $desktop_dir
-remove-shortcut     Remove shortcut from $desktop_dir
--h, --help          Show this help message
+install-script    Install this script to $target_dir
+remove-script     Remove script from $target_dir
+install-shortcut  Install shortcut to $desktop_dir
+remove-shortcut   Remove shortcut from $desktop_dir
+-h, --help        Show this help message
 
 If no argument is given, the script will type clipboard contents into a selected window (X11 only).
 EOF
     exit 0
-elif [[ "$1" == "install-executable" ]]; then
+elif [[ "$1" == "install-script" ]]; then
     if cp -- "$0" "$target_file" && chmod +x "$target_file"; then
         echo "Installed to $target_file"
         exit 0
@@ -40,7 +40,7 @@ elif [[ "$1" == "install-executable" ]]; then
         echo "Hint: Try running with sudo." >&2
     fi
     exit 1
-elif [[ "$1" == "remove-executable" ]]; then
+elif [[ "$1" == "remove-script" ]]; then
     if rm "$target_file"; then
         echo "Removed $target_file"
         exit 0
