@@ -8,7 +8,7 @@
 
 # Detect Wayland and exit if present
 if [ -n "$WAYLAND_DISPLAY" ]; then
-    echo "Error: Wayland is not supported by this script."
+    echo "Error: Wayland is not supported by this script." >&2
     exit 1
 fi
 
@@ -40,7 +40,7 @@ elif [[ "$1" == "install-binary" ]]; then
         exit 0
     fi
     if [ -z "$SUDO_USER" ]; then
-        echo "Hint: Try running with sudo."
+        echo "Hint: Try running with sudo." >&2
     fi
     exit 1
 elif [[ "$1" == "remove-binary" ]]; then
@@ -49,7 +49,7 @@ elif [[ "$1" == "remove-binary" ]]; then
         exit 0
     fi
     if [ -z "$SUDO_USER" ]; then
-        echo "Hint: Try running with sudo."
+        echo "Hint: Try running with sudo." >&2
     fi
     exit 1
 elif [[ "$1" == "install-shortcut" ]]; then
@@ -136,14 +136,14 @@ fi
 
 # Detect X11 and exit with error if not present
 if [ -z "$DISPLAY" ]; then
-    echo "Error: This script must be run inside an X11 session."
+    echo "Error: This script must be run inside an X11 session." >&2
     exit 1
 fi
 
 # Select window using xdotool
 win=$(xdotool selectwindow 2>/dev/null)
 if [[ $? -ne 0 || -z "$win" ]]; then
-    echo "Error: Failed to select window."
+    echo "Error: Failed to select window." >&2
     exit 1
 fi
 
@@ -155,7 +155,7 @@ text="${text%$sentinel}"
 if [[ "$text" == *$'\n'* ]]; then
     text=$(yad --text-info --editable --width=600 --height=400 --title="Edit clipboard text before typing" --filename=<(echo -n "$text"))
     if [[ $? -ne 0 ]]; then
-        echo "Error: Text editing cancelled."
+        echo "Error: Text editing cancelled." >&2
         exit 1
     fi
     # Replace newlines with carriage returns for xdotool
@@ -165,7 +165,7 @@ fi
 # Focus window using xdotool
 xdotool windowfocus --sync $win
 if [[ $? -ne 0 ]]; then
-    echo "Error: Failed to focus window."
+    echo "Error: Failed to focus window." >&2
     exit 1
 fi
 # Type the text
