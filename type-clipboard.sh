@@ -157,9 +157,9 @@ text=$(xclip -selection clipboard -o; printf "$sentinel")
 text="${text%$sentinel}"
 # Check for multiline and allow editing using zenity
 if [[ "$text" == *$'\n'* ]]; then
-    echo "[$text]"
     text=$(zenity --text-info --editable --width=600 --height=400 --title="Edit clipboard text before typing" --filename=<(echo -n "$text"))
     if [[ $? -ne 0 ]]; then
+        echo "Error: Text editing cancelled."
         exit 1
     fi
     # Replace newlines with carriage returns for xdotool
@@ -167,6 +167,7 @@ if [[ "$text" == *$'\n'* ]]; then
     text=$(echo -n "$text" | tr '\n' '\r')
     echo "[$text]"    
 fi
+
 
 # Type the text
 echo -n "$text" | xdotool type --clearmodifiers --delay 25 --window $win --file -
