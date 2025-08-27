@@ -165,7 +165,7 @@ text=$(xclip -selection clipboard -o; printf "$sentinel")
 text="${text%$sentinel}"
 # Check for multiline and allow editing using yad
 if [[ "$text" == *$'\n'* ]]; then
-    text=$(yad --text-info --editable --width=600 --height=400 --title="Edit clipboard text before typing" --filename=<(echo -n "$text"))
+    text=$(echo -n "$text" | yad --text-info --editable --width=600 --height=400 --title="Edit clipboard text before typing" --listen --tail)
     if [[ $? -ne 0 ]]; then
         echo "Error: Text editing cancelled." >&2
         exit 1
