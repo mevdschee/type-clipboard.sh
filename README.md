@@ -2,7 +2,7 @@
 
 Linux bash script that types the contents of the clipboard into a selected window.
 
-This is particularly useful when clipboard sharing is not available (e.g. a VNC console).
+This is for IT professionals that need to type long passwords or keys into remote consoles.
 
 The script will prompt you to select a window before it types the clipboard contents into it.
 
