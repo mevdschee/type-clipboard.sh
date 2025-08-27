@@ -81,7 +81,7 @@ elif [[ "$1" == "remove" ]]; then
         echo "Error: Failed to remove script." >&2
         exit 1
     fi
-    echo "Removed script $target_file"
+    echo "Removed script from $target_file"
     # Remove desktop entry
     rm "$desktop_file"
     if [[ $? -ne 0 ]]; then
@@ -89,7 +89,7 @@ elif [[ "$1" == "remove" ]]; then
         exit 1
     fi
     update-desktop-database "$desktop_dir" >/dev/null 2>&1
-    echo "Removed shortcut $desktop_file"
+    echo "Removed shortcut from $desktop_file"
     exit 0
 fi
 
