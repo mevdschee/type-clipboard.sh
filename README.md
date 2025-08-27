@@ -29,7 +29,9 @@ When you run the script for the first time, it will check for these dependencies
 
 **Note:** You may need to prepend `sudo` to the script to execute it with root privileges.
 
-Installation paths:
+## Files
+
+When installing the script the follow installation paths are used:
 
 - Script: `/usr/local/bin/type-clipboard` 
 - Shortcut: `/usr/share/applications/type-clipboard.desktop`. 
