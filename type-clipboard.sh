@@ -58,7 +58,7 @@ elif [[ "$1" == "install-shortcut" ]]; then
 Version=1.0
 Type=Application
 Name=type-clipboard
-Comment=Type the contents of the clipboard into a selected window (X11 only)
+Comment=Type the contents of the clipboard into a selected window
 Exec=type-clipboard
 Icon=autokey
 Path=
@@ -70,18 +70,12 @@ EOF
         echo "Shortcut installed to $desktop_file"
         exit 0
     fi
-    if [ -n "$SUDO_USER" ]; then
-        echo "Hint: Try not running with sudo."
-    fi
     exit 1
 elif [[ "$1" == "remove-shortcut" ]]; then
     if rm "$desktop_file"; then
         update-desktop-database "$desktop_dir" >/dev/null 2>&1
         echo "Removed shortcut $desktop_file"
         exit 0
-    fi
-    if [ -n "$SUDO_USER" ]; then
-        echo "Hint: Try not running with sudo."
     fi
     exit 1
 fi
