@@ -26,8 +26,9 @@ install     Install this script and create a shortcut
 remove      Remove the script and its shortcut
 -h, --help  Show this help message
 
-script: $target_file
-shortcut: $desktop_file
+Installation paths:
+- script: $target_file
+- shortcut: $desktop_file
 
 If no argument is given, the script will:
 - allow selecting a window using the left mouse button
