@@ -167,11 +167,12 @@ text=$(xclip -selection clipboard -o; printf "$sentinel")
 text="${text%$sentinel}"
 # Check for multiline and allow editing using yad
 if [[ "$text" == *$'\n'* ]]; then
-    text=$(echo -n "$text" | yad --text-info --editable --width=600 --height=400 --title="Edit clipboard text before typing" --listen --tail)
+    text=$(echo -n "$text" | yad --text-info --editable --width=600 --height=400 --title="Edit clipboard text before typing" --listen --tail && printf "$sentinel")
     if [[ $? -ne 0 ]]; then
         echo "Error: Text editing cancelled." >&2
         exit 1
     fi
+    text="${text%$sentinel}"
     # Replace newlines with carriage returns for xdotool
     text=$(echo -n "$text" | tr '\n' '\r')
 fi
@@ -185,6 +186,5 @@ fi
 
 # Use xdotool to type if text is non-empty
 if [[ -n "$text" ]]; then
-    echo "type[$text]"
     echo -n "$text" | xdotool type --clearmodifiers --delay 25 --window $win --file -
 fi
