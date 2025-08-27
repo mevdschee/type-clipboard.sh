@@ -20,8 +20,6 @@ Install dependencies on:
 - **Fedora:** `sudo dnf install xdotool xclip zenity`
 - **Arch/Manjaro:** `sudo pacman -Syu xdotool xclip zenity`
 
-
-
 ## Usage
 
 ```
