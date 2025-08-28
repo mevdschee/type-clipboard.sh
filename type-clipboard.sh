@@ -181,17 +181,8 @@ fi
 # Wait for the specified delay
 sleep "$delay"
 
-# Select window if enabled
-if [[ "$select_window" == "Yes" ]]; then
-    win=$(xdotool selectwindow 2>/dev/null)
-    if [[ $? -ne 0 || -z "$win" ]]; then
-        echo "Error: Failed to select window." >&2
-        exit 1
-    fi
-else
-    # Use currently active window
-    win=$(xdotool getactivewindow)
-fi
+# Get currently active window
+win=$(xdotool getactivewindow)
 
 # Focus window using xdotool
 xdotool windowfocus --sync $win
