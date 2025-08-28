@@ -173,8 +173,7 @@ fi
 # Ask user for delay and window selection using yad (default delay 2, select window yes)
 result=$(yad --form --title="Type Clipboard" \
     --field="Delay before typing (seconds)":NUM "2"\
-    --field="Select window to type into":CB "yes!no" \
-    )
+    --field="Select window to type into":CB "No!Yes")
 if [[ $? -ne 0 || -z "$result" ]]; then
     echo "Error: Delay dialog cancelled." >&2
     exit 1
@@ -194,15 +193,16 @@ fi
 # Wait for the specified delay
 sleep "$delay"
 
-if [[ select_window == "yes" ]]; then
-    # Select window using xdotool
+
+# Select window using xdotool
+if [[ "$select_window" == "Yes" ]]; then
     win=$(xdotool selectwindow)
     if [[ $? -ne 0 || -z "$win" ]]; then
         echo "Error: Window selection cancelled." >&2
         exit 1
     fi
 else 
-    # Get currently active window
+    # Or get currently active window
     win=$(xdotool getactivewindow)
 fi
 
