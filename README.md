@@ -34,7 +34,7 @@ When you run the script for the first time, it will check for these dependencies
 When installing the script the follow installation paths are used:
 
 - Script: `/usr/local/bin/type-clipboard` 
-- Shortcut: `/usr/share/applications/type-clipboard.desktop`. 
+- Shortcut: `/usr/share/applications/type-clipboard.desktop`
 
 After installing the shortcut, the application should be easy to add to your menu or panel. The shortcut database is updated automatically and the application will appear as "type-clipboard".
 
