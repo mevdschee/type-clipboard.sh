@@ -171,18 +171,40 @@ if [[ "$text" == *$'\n'* ]]; then
 fi
 
 # Ask user for delay and window selection using yad (default delay 2, select window yes)
-delay=$(yad --form --title="Type Clipboard" \
-    --field="Delay before typing (seconds)":NUM "2")
-if [[ $? -ne 0 || -z "$delay" || ! "$delay" =~ ^[0-9]+$ ]]; then
-    echo "Error: Invalid delay or dialog cancelled." >&2
+result=$(yad --form --title="Type Clipboard" \
+    --field="Delay before typing (seconds)":NUM "2"\
+    --field="Select window to type into":CB "yes!no" \
+    )
+if [[ $? -ne 0 || -z "$result" ]]; then
+    echo "Error: Delay dialog cancelled." >&2
+    exit 1
+fi
+
+# Split input on pipe and get first element
+result=(${result//|/ })
+delay="${result[0]}"
+select_window="${result[1]}"
+
+# Validate delay is a positive integer
+if ! [[ "$delay" =~ ^[0-9]+$ ]]; then
+    echo "Error: Invalid delay entered." >&2
     exit 1
 fi
 
 # Wait for the specified delay
 sleep "$delay"
 
-# Get currently active window
-win=$(xdotool getactivewindow)
+if [[ select_window == "yes" ]]; then
+    # Select window using xdotool
+    win=$(xdotool selectwindow)
+    if [[ $? -ne 0 || -z "$win" ]]; then
+        echo "Error: Window selection cancelled." >&2
+        exit 1
+    fi
+else 
+    # Get currently active window
+    win=$(xdotool getactivewindow)
+fi
 
 # Focus window using xdotool
 xdotool windowfocus --sync $win
