@@ -203,6 +203,10 @@ if [[ "$select_window" == "Yes" ]]; then
 else 
     # Or get currently active window
     win=$(xdotool getactivewindow)
+    if [[ $? -ne 0 ]]; then
+        echo "Error: Failed to get active window." >&2
+        exit 1
+    fi
 fi
 
 # Focus window using xdotool
