@@ -41,3 +41,9 @@ After installing the shortcut, the application should be easy to add to your men
 ## License
 
 MIT License (see LICENSE file)
+
+## Some other tools
+
+- [xdotool-type-clipboard - A simple bash script using xdotool and a delay](https://github.com/POMATu/xdotool-type-clipboard)
+- [TypeClipboard - A Windows application written in C#](https://github.com/jlaundry/TypeClipboard)
+- [PyTyper - A Python implementation of a clipboard typer](https://github.com/DoingFedTime/PyTyper)
