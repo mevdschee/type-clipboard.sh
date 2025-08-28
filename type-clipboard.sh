@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Filename: type-clipboard.sh
-# Description: Type the contents of the clipboard into a selected window (X11 only)
+# Description: Type the contents of the clipboard into a selected window (Linux X11 only)
 # Version: 1.0 (2025-08-28)
 # Author: Maurits van der Schee (maurits@vdschee.nl)
 # License: MIT
