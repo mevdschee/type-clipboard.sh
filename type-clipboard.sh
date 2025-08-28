@@ -193,7 +193,6 @@ fi
 # Wait for the specified delay
 sleep "$delay"
 
-
 # Select window using xdotool
 if [[ "$select_window" == "Yes" ]]; then
     win=$(xdotool selectwindow)
