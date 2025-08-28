@@ -40,7 +40,7 @@ After installing the shortcut, the application should be easy to add to your men
 
 ## License
 
-MIT License (see LICENSE file)
+MIT License (see [LICENSE](LICENSE) file)
 
 ## Some other tools
 
