@@ -10,7 +10,7 @@ If the clipboard contains multiple lines, you can edit the text before typing us
 
 ## Requirements
 
-- X11 session (not Wayland)
+- Linux X11 session (not Wayland)
 - `xdotool` (for window selection and typing)
 - `xclip` (for clipboard access)
 - `yad` (for multiline editing/confirmation)
