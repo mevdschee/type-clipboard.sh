@@ -19,7 +19,7 @@ Warning: This script does NOT work on a default install of Ubuntu/Fedora/Debian 
 
 When you run the script for the first time, it will check for these dependencies and suggest how to install them if they are missing.
 
-*) Examples: Cinnamon, XFCE, MATE, LXQt or Budgie (not GNOME or KDE Plasma, as those are Wayland based)
+*) Examples of X11 based desktop environments: Cinnamon, XFCE, MATE, LXQt or Budgie. Note that GNOME and KDE Plasma are Wayland based.
 
 ## Usage
 
