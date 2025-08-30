@@ -10,7 +10,7 @@ If the clipboard contains multiple lines, you can edit the text before typing us
 
 ## Requirements
 
- This script does not work on Gnome as it does not use X11, but Wayland.
+Warning: This script does not work on Gnome as it does not use X11, but Wayland.
 
 - X11 window manager, such as Cinnamon or XFCE*
 - `xdotool` (for window selection and typing)
