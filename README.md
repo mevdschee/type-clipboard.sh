@@ -10,7 +10,7 @@ If the clipboard contains multiple lines, you can edit the text before typing us
 
 ## Requirements
 
-Warning: This script does NOT work on default installed Ubuntu/Fedora/Debian as those distributions default to GNOME as their desktop environment.
+Warning: This script does NOT work on default installed Ubuntu/Fedora/Debian as those distributions default to GNOME (which is Wayland based) as their desktop environment.
 
 - X11 based desktop environment*
 - `xdotool` (for window selection and typing)
