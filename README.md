@@ -1,6 +1,6 @@
 # type-clipboard.sh
 
-Linux bash script that types the contents of the clipboard into a selected window.
+Linux bash script that types the contents of the clipboard into a selected window (requires X11).
 
 This is for IT professionals that need to type long passwords or keys into remote consoles.
 
