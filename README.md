@@ -12,7 +12,7 @@ If the clipboard contains multiple lines, you can edit the text before typing us
 
 Warning: This script does NOT work on default installed Ubuntu/Fedora/Debian as those distributions default to GNOME (which is Wayland based) as their desktop environment.
 
-- X11 based desktop environment*
+- X11 based desktop environment* (Wayland is NOT supported)
 - `xdotool` (for window selection and typing)
 - `xclip` (for clipboard access)
 - `yad` (for multiline editing/confirmation)
