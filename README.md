@@ -10,14 +10,16 @@ If the clipboard contains multiple lines, you can edit the text before typing us
 
 ## Requirements
 
-Warning: This script does not work on default Ubuntu/Fedora/Debian as those distributions use GNOME.
+Warning: This script does NOT work on default Ubuntu/Fedora/Debian as those distributions use GNOME as their desktop environment.
 
-- X11 window manager, such as Cinnamon, XFCE*, MATE, LXQt or Budgie (not GNOME).
+- X11 based desktop environment*
 - `xdotool` (for window selection and typing)
 - `xclip` (for clipboard access)
 - `yad` (for multiline editing/confirmation)
 
 When you run the script for the first time, it will check for these dependencies and suggest how to install them if they are missing.
+
+*) Examples: Cinnamon, XFCE, MATE, LXQt or Budgie (not GNOME or KDE Plasma, as those are Wayland based)
 
 ## Usage
 
