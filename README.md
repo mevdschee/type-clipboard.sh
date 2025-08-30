@@ -10,14 +10,15 @@ If the clipboard contains multiple lines, you can edit the text before typing us
 
 ## Requirements
 
-- Linux X11 session (not Wayland)
+- Debian based Linux
+- X11 window manager, such as Cinnamon or XFCE* (not Wayland based, such as Gnome)
 - `xdotool` (for window selection and typing)
 - `xclip` (for clipboard access)
 - `yad` (for multiline editing/confirmation)
 
 When you run the script for the first time, it will check for these dependencies and suggest how to install them if they are missing.
 
-Tested on Linux Mint XFCE 22.1, but should also work on other Debian based distributions that use X11.
+*) Tested on Linux Mint XFCE 22.1, but should also work on other Debian based distributions that use X11.
 
 ## Usage
 
