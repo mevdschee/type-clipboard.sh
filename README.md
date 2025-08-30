@@ -17,6 +17,8 @@ If the clipboard contains multiple lines, you can edit the text before typing us
 
 When you run the script for the first time, it will check for these dependencies and suggest how to install them if they are missing.
 
+Tested on Linux Mint XFCE 22.1, but should also work on other Debian based distributions that use X11.
+
 ## Usage
 
 ```
