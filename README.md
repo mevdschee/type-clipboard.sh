@@ -8,6 +8,10 @@ The script will prompt you to select a window before it types the clipboard cont
 
 If the clipboard contains multiple lines, you can edit the text before typing using an edit window.
 
+## Demo
+
+![demo](demo.gif)
+
 ## Requirements
 
 Warning: This script does NOT work on a default install of Ubuntu/Fedora/Debian as those distributions default to GNOME (which is Wayland based) as their desktop environment.
